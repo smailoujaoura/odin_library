@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Library</title>
 		<link rel="stylesheet" href="style.css">
-		<script src="szcript.js"></script>
+		<script type="module" src="szcript.js"></script>
 	</head>
 	<body>
 		<header>
@@ -14,15 +14,23 @@
 		</header>
 		<main>
 			<div class="reading-status">
-				<div class="to-read-list">
+				<div class="list willread">
 					<p>TO READ</p>
+					<div class="to-read-list" ondragover="allowDrop(event)" ondrop="drop(event)">
+
+					</div>
 				</div>
-				<div class="reading-list">
+				<div class="list readingnow">
 					<p>READING</p>
-					<div class="book">TEST</div>
+					<div class="reading-list" ondragover="allowDrop(event)" ondrop="drop(event)">
+
+					</div>
 				</div>
-				<div class="read-list">
+				<div class="list haveread">
 					<p>READ</p>
+					<div class="read-list" ondragover="allowDrop(event)" ondrop="drop(event)">
+
+					</div>
 				</div>
 			</div>
 		</main>

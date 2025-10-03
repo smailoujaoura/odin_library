@@ -19,7 +19,8 @@ html {
 }
 
 body {
-	font-family: 'Courier New', Courier, monospace;
+	/* font-family: 'Courier New', Courier, monospace; */
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	background: var(--one-bac-color);
 	color: var(--one-tex-color);
 
@@ -34,7 +35,6 @@ body {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		/* border-bottom: 1px solid var(--two-bac-color); */
 		& button {
 			height: 50px;
 			cursor: pointer;
@@ -55,7 +55,6 @@ body {
 			font-weight: 900;
 			font-size: 32px;
 			margin-left: 4vw;
-			/* align-self: ; */
 		}
 	}
 }
@@ -66,41 +65,215 @@ main {
 
 footer {
 	flex: 0 0 auto;
-	/* border-top: 1px solid var(--two-bac-color); */
-	/* padding-top: 20px; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* & div:link {
-		color: var(--two-tex-color);
-	} */
+
+	& a {
+		color: yellow;
+	}
 }
 
 .reading-status {
 	height: 98%;
+	width: 100%;
 	& p {
-		/* font-weight: ; */
 		padding-bottom: 10px;
-		border-bottom: 1px solid var(--thr-bac-color);
+		border-bottom: 5px solid var(--thr-bac-color);
+		font-size: 18px;
+		font-weight: 700;
 	}
 	text-align: center;
 	display: flex;
 	justify-content: space-evenly;
-	/* margin-top: 10px; */
 	flex-wrap: wrap;
 	gap: 4px;
 	& div {
 		border-radius: 10px;
-		flex: 1 1 auto;
+		/* flex: 1 1 auto;
 		flex-basis: 300px;
 		flex-basis: min(30vw, 300px);
 		min-width: 300px;
-		background-color: var(--two-bac-color);
-		width: 100%;
-		/* border-right: 1px solid var(--thr-bac-color); */
+		width: 100%; */
 	}
 }
 
-/* .book {
-	
-} */
+.list {
+	width: 30%;
+	max-width: 600px;
+	min-width: 380px;
+	/* min-height: 400px; */
+	/* box-sizing: border-box; */
+	padding: 10px;
+}
+
+.read-list,
+.reading-list,
+.to-read-list {
+	/* min-height: 400px; */
+	height: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+}
+
+.willread {
+	background-color: #283343;
+}
+
+.readingnow {
+	background-color: #A9792C;
+}
+
+.haveread {
+	background-color: #00786F;
+}
+
+.bookpane {
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 180px;
+    background-color: #F5F5F5;
+    color: #101828;
+	cursor: move;
+	padding: 10px;
+}
+
+.to-read-list::-webkit-scrollbar {
+	display: none;
+}
+
+.bookpane img {
+	width: 180px;
+	height: auto;
+	max-height: 300px;
+	object-fit: cover;
+}
+
+/* AI STYLING FORM */
+/* Modal Dialog Styling */
+.modal-dialog {
+	background: var(--two-bac-color);
+	color: var(--one-tex-color);
+	border: 2px solid var(--thr-bac-color);
+	border-radius: 10px;
+	padding: 2rem;
+	width: 40vw;
+	max-width: 500px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Backdrop when dialog is open */
+.modal-dialog::backdrop {
+	background: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(4px);
+}
+
+/* Close button SVG */
+.close-dialog {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.close-dialog:hover {
+	transform: scale(1.1);
+}
+
+/* Form title */
+.modal-dialog p {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+
+/* Form container */
+.modal-dialog form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+/* Each form field wrapper */
+.modal-dialog form > div {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+/* Labels */
+.modal-dialog label {
+	font-weight: 600;
+	font-size: 0.95rem;
+	color: var(--two-tex-color);
+}
+
+/* Input fields */
+.modal-dialog input[type="text"],
+.modal-dialog input[type="number"],
+.modal-dialog input[type="file"] {
+	padding: 0.75rem;
+	border-radius: 6px;
+	border: 2px solid var(--thr-bac-color);
+	background: var(--one-bac-color);
+	color: var(--one-tex-color);
+	font-size: 1rem;
+	transition: border-color 0.2s;
+}
+
+/* Input focus state */
+.modal-dialog input[type="text"]:focus,
+.modal-dialog input[type="number"]:focus {
+	outline: none;
+	border-color: var(--for-bac-color);
+}
+
+/* Placeholder text */
+.modal-dialog input::placeholder {
+	color: var(--two-tex-color);
+	opacity: 0.6;
+}
+
+/* File input specific styling */
+.modal-dialog input[type="file"] {
+	padding: 0.5rem;
+	cursor: pointer;
+}
+
+/* Submit button */
+.submit-book {
+	margin-top: 1rem;
+	padding: 0.875rem 2rem;
+	background: var(--for-bac-color);
+	color: var(--one-tex-color);
+	border: none;
+	border-radius: 8px;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.submit-book:hover {
+	background-color: #075f59;
+}
+
+/* Preview image (if you want to show it) */
+#preview {
+	max-width: 100%;
+	max-height: 200px;
+	object-fit: contain;
+	margin-top: 0.5rem;
+	border-radius: 4px;
+	display: none; /* Hidden until image is selected */
+}
+
+#preview[src] {
+	display: block;
+}
